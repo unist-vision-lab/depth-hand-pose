@@ -285,14 +285,14 @@ class Tester(object):
             new_3d_pose = pose_3ds.cpu().detach().numpy().reshape(skeletons_in.shape[0], skeletons_in.shape[1], 1)
 
             ### Visualization
-            # for a, img_n in enumerate(img):
-            #     fig, ax = plt.subplots(1)
-            #     ci = np.array(img_n.permute(1, 2, 0))
-            #     ax.imshow(ci)
-            #     uvd_n = np.concatenate((skeletons_in[a], new_3d_pose[a]), axis=1)
-            #     plot_hand(uvd_n, ax)
-            #    # fig.savefig('00001.png', dpi=fig.dpi)
-            #     plt.show()
+            for a, img_n in enumerate(img):
+                fig, ax = plt.subplots(1)
+                ci = np.array(img_n.permute(1, 2, 0))
+                ax.imshow(ci)
+                uvd_n = np.concatenate((skeletons_in[a], new_3d_pose[a]), axis=1)
+                plot_hand(uvd_n, ax)
+               # fig.savefig('00001.png', dpi=fig.dpi)
+                plt.show()
 
             for per_batch in range(len(skeletons_in)):
 
